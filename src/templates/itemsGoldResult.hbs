@@ -1,0 +1,19 @@
+
+  <div class="country">
+    <ul class="info-country">
+      <li>{{name}}</li>
+      <li>Столица : {{capital}}</li>
+      <li>Население: {{population}}</li>
+      <li>Регион: {{region}}</li>
+      <li>
+        <ul class="language">
+          Языки:
+          {{#each  languages}}
+            <li>{{name}}</li>
+          {{/each}}
+        </ul>
+      </li>
+    </ul>
+    <img src="{{flag}}" alt="flag" class="flag-country" width="300px">
+  </div>
+
