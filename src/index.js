@@ -1,40 +1,23 @@
 import './styles.css';
-import crateFetchCountry from "./js/createFetchCountry";
-import updateFindResult from "./js/createViewModel";
-import notyMessages from "./js/notyMessage";
-
+import createViewModel from "./js/createViewModel";
+import FetchCountry from './js/FetchCountry'
+import refs from "./js/refs";
 const debounce = require('lodash.debounce');
-const inputRef = document.querySelector('.name-country');
+
+
+const newFetch = new FetchCountry();
+
+refs.inputRef.addEventListener('input', debounce(newFetch.getFetchCountry, 500));
+refs.resultSearchNewbie.addEventListener('click', setCountryToSearch)
 
 
 
-inputRef.addEventListener('input', debounce(getFetchCountry, 500));
 
-
-
-function getFetchCountry(event) {
-  const nameCountry = event.target.value;
-  crateFetchCountry(nameCountry)
-    .then(checkValidationRes)
-    .catch(console.log)
-    .finally(()=>{
-        console.log('finally');
-    });
-}
-
-
-function checkValidationRes(country) {
-  console.log(country)
-  if (country.status === 404){
-    notyMessages.errorMsg();
-  } else if(country.length===1){
-    notyMessages.successMsg();
-    updateFindResult(country[0], true)
-  }else if(country.length>10){
-    notyMessages.infoMsg();
-  }else{
-    updateFindResult(country[0], false)
-    notyMessages.infoMsg();
-  }
+function setCountryToSearch(event) {
+  console.log(event.target);
+  console.log(event);
+  refs.inputRef.value ='';
+  console.log(event.target.dataset);
+  createViewModel.showInfoCountry(event.target.dataset.index);
 
 }

@@ -1,13 +1,13 @@
 
   <div class="country">
     <ul class="info-country">
-      <li>{{name}}</li>
-      <li>Столица : {{capital}}</li>
-      <li>Население: {{population}}</li>
-      <li>Регион: {{region}}</li>
+      <li><span>Название</span> {{name}}</li>
+      <li><span>Столица: </span> {{capital}}</li>
+      <li><span>Население:</span> {{population}}</li>
+      <li><span>Регион:</span>{{region}}</li>
       <li>
         <ul class="language">
-          Языки:
+          <span>Языки:</span>
           {{#each  languages}}
             <li>{{name}}</li>
           {{/each}}

@@ -21,6 +21,9 @@ body {
   padding-top: 50px;
   height: 100vh;
 }
+li{
+  list-style: none;
+}
 
 body.light-theme {
   background-color: #fff;
@@ -49,4 +52,14 @@ body.dark-theme {
 
 .info-country{
   margin-right: 30px;
+
 }
+.info-country span{
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+.countries{
+  cursor: pointer;
+}
+
